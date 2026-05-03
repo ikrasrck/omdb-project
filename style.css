@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0b1120; 
+    color: #f8fafc;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 50px 20px;
+}
+
+.container { width: 100%; max-width: 700px; }
+
+h1 {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.pro-badge {
+    background: linear-gradient(135deg, #fbbf24, #a36b08);
+    font-size: 14px;
+    padding: 4px 10px;
+    border-radius: 8px;
+    color: #0b1120;
+    font-weight: bold;
+}
+
+.search-section {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    margin-bottom: 30px;
+    border: 1px solid #334155;
+}
+
+/* Input Wrapper & Clear Button */
+.search-box { display: flex; gap: 10px; margin-bottom: 15px; }
+.input-wrapper { position: relative; flex: 1; display: flex; }
+.input-wrapper input {
+    width: 100%;
+    padding: 14px 40px 14px 20px;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    background: #0b1120;
+    color: white;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+.input-wrapper input:focus { border-color: #38bdf8; box-shadow: 0 0 10px rgba(56, 189, 248, 0.2); }
+
+.clear-btn {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: #64748b;
+    cursor: pointer;
+    display: none; /* JS ile gösterilecek */
+}
+.clear-btn:hover { color: #ef4444; }
+
+button#searchBtn {
+    padding: 14px 30px;
+    background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+    color: #0f172a;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+button#searchBtn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(56, 189, 248, 0.4); }
+
+.filters { display: flex; gap: 15px; margin-bottom: 15px; }
+.filters select, .filters input {
+    flex: 1; padding: 12px; background: #0b1120; border: 1px solid #334155;
+    border-radius: 10px; color: #cbd5e1; outline: none; cursor: pointer;
+}
+
+/* Hızlı Etiketler */
+.quick-tags { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; font-size: 13px; color: #94a3b8; }
+.quick-tag {
+    background: #334155; border: none; color: #e2e8f0; padding: 6px 12px;
+    border-radius: 20px; cursor: pointer; transition: 0.2s; font-size: 12px;
+}
+.quick-tag:hover { background: #38bdf8; color: #0f172a; }
+
+/* Durum Mesajları */
+.status-msg { text-align: center; padding: 15px; border-radius: 12px; font-weight: 600; margin-bottom: 20px; }
+.error-msg { color: #ef4444; background: rgba(239, 68, 68, 0.1); border: 1px solid #ef4444; }
+.loading-msg { color: #155a78; background: rgba(56, 189, 248, 0.1); border: 1px solid #38bdf8; animation: pulse 1.5s infinite; }
+
+@keyframes pulse { 0% { opacity: 0.6; } 50% { opacity: 1; } 100% { opacity: 0.6; } }
+
+/* Film Kartı ve IMDb Bar */
+.movie-card {
+    background: #1e293b; border-radius: 20px; overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4); border: 1px solid #334155; display: none;
+}
+.empty-state { text-align: center; padding: 60px 20px; color: #64748b; display: block; }
+.movie-info { display: flex; flex-direction: column; animation: fadeIn 0.5s ease; }
+@media (min-width: 550px) { .movie-info { flex-direction: row; } }
+
+.movie-info img { width: 100%; max-width: 250px; object-fit: cover; }
+.details { padding: 30px; width: 100%; }
+.details h2 { font-size: 26px; margin-bottom: 10px; color: #ffffff; }
+
+.badge-container { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+.badge { background: #334155; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; color: #e2e8f0; }
+.badge.score-high { color: #10b981; background: rgba(16, 185, 129, 0.1); border: 1px solid #10b981; }
+.badge.score-mid { color: #f59e0b; background: rgba(245, 158, 11, 0.1); border: 1px solid #f59e0b; }
+.badge.score-low { color: #ef4444; background: rgba(239, 68, 68, 0.1); border: 1px solid #ef4444; }
+
+.director { color: #94a3b8; font-size: 14px; margin-bottom: 15px; }
+
+/* IMDb İlerleme Çubuğu */
+.rating-container { margin-top: 15px; }
+.rating-label { display: flex; justify-content: space-between; font-size: 13px; color: #cbd5e1; margin-bottom: 5px; }
+.progress-bg { width: 100%; height: 8px; background: #334155; border-radius: 10px; overflow: hidden; }
+.progress-fill { height: 100%; border-radius: 10px; width: 0; transition: width 1s ease-in-out; }

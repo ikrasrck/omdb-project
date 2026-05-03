@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMDB Premium Arama</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Film Gezgini <span class="pro-badge">PRO</span></h1>
+        
+        <div class="search-section">
+            <div class="search-box">
+                <div class="input-wrapper">
+                    <input type="text" id="searchInput" placeholder="Film veya dizi adı giriniz...">
+                    <span id="clearBtn" class="clear-btn" title="Temizle">&times;</span>
+                </div>
+                <button id="searchBtn">Ara</button>
+            </div>
+            
+            <div class="filters">
+                <select id="typeFilter">
+                    <option value="">Tüm Türler</option>
+                    <option value="movie">Sadece Filmler</option>
+                    <option value="series">Sadece Diziler</option>
+                </select>
+                <input type="number" id="yearFilter" placeholder="Yıl (Örn: 2014)" min="1900" max="2026">
+            </div>
+
+            <div class="quick-tags" id="quickTags">
+                <span>Popüler:</span>
+                <button class="quick-tag">Interstellar</button>
+                <button class="quick-tag">The Matrix</button>
+                <button class="quick-tag">Breaking Bad</button>
+            </div>
+        </div>
+
+        <div id="status-container"></div>
+
+        <div id="movie-result" class="movie-card">
+            <div class="empty-state">
+                <p>Keşfetmek için bir film veya dizi arayın.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
